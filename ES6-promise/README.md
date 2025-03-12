@@ -1,0 +1,1 @@
+Intranet assignment for promises in ES6
