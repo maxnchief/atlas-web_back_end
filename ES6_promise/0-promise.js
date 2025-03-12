@@ -1,11 +1,14 @@
 function getResponseFromAPI() {
     return new Promise((resolve, reject) => {
-        const success = true;
+      setTimeout(() => {  
+        const success = true
 
         if (success) {
-            resolve("API call succeeded");
+            const data = ("API call succeeded");
+            resolve(data);
         } else {
-            reject("API call failed");
+            const data = ("API call failed");
+            reject(error);
         }
     });
 }
