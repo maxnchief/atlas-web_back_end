@@ -6,7 +6,7 @@ export default function hasValuesFromArray(set, array) {
     } else {
       status = false;
     }
-      return status;
+    return status;
   });
   return status;
 }
