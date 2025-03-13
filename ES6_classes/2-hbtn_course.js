@@ -1,54 +1,54 @@
 class HolbertonCourse {
-  constructor(name, length, students) {
-    this._name = this._validateString(name, 'Name');
-    this._length = this._validateNumber(length, 'Length');
-    his._students = this._validateArrayOfStrings(students, 'Students');
-  }
-
-  _validateString(value, attributeName) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`${attributeName} must be a string`);
+    constructor(name, length, students) {
+        this._name = this._validateString(name, 'Name');
+        this._length = this._validateNumber(length, 'Length');
+        this._students = this._validateArrayOfStrings(students, 'Students');
     }
-      return value;
-  }
 
-  _validateNumber(value, attributeName) {
-    if (typeof value !== 'number') {
-      throw new TypeError(`${attributeName} must be a number`);
+    _validateString(value, attributeName) {
+        if (typeof value !== 'string') {
+            throw new TypeError(`${attributeName} must be a string`);
+        }
+        return value;
     }
-      return value;
-  }
 
-  _validateArrayOfStrings(value, attributeName) {
-    if (!Array.isArray(value) || !value.every(item => typeof item === 'string')) {
-      throw new TypeError(`${attributeName} must be an array of strings`);
+    _validateNumber(value, attributeName) {
+        if (typeof value !== 'number') {
+            throw new TypeError(`${attributeName} must be a number`);
+        }
+        return value;
     }
-      return value;
-  }
 
-  get name() {
-    return this._name;
-  }
+    _validateArrayOfStrings(value, attributeName) {
+        if (!Array.isArray(value) || !value.every(item => typeof item === 'string')) {
+            throw new TypeError(`${attributeName} must be an array of strings`);
+        }
+        return value;
+    }
 
-  set name(value) {
-    this._name = this._validateString(value, 'Name');
-  }
+    get name() {
+        return this._name;
+    }
 
-  get length() {
-    return this._length;
-  }
+    set name(value) {
+        this._name = this._validateString(value, 'Name');
+    }
 
-  set length(value) {
-    this._length = this._validateNumber(value, 'Length');
-  }
+    get length() {
+        return this._length;
+    }
 
-  get students() {
-    return this._students;
-  }
+    set length(value) {
+        this._length = this._validateNumber(value, 'Length');
+    }
 
-  set students(value) {
-    this._students = this._validateArrayOfStrings(value, 'Students');
-  }
+    get students() {
+        return this._students;
+    }
+
+    set students(value) {
+        this._students = this._validateArrayOfStrings(value, 'Students');
+    }
 }
 
 export default HolbertonCourse;
