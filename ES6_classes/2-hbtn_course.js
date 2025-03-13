@@ -14,30 +14,30 @@ export default class HolbertonCourse {
       this._name = name;
     } else {
       throw new Error('Please enter a string');
-      }
-    }
-  
-    get length() {
-      return this._length;
-    }
-  
-    set length(length) {
-      if (typeof length === 'number') {
-        this._length = length;
-      } else {
-        throw new Error('Please enter a number');
-      }
-    }
-  
-    get students() {
-      return this._students;
-    }
-  
-    set students(students) {
-      if (Array.isArray(students)) {
-        this._students = students;
-      } else {
-        throw new Error('Please enter an array');
-      }
     }
   }
+
+  get length() {
+    return this._length;
+  }
+
+  set length(length) {
+    if (typeof length === 'number') {
+      this._length = length;
+    } else {
+      throw new Error('Please enter a number');
+    }
+  }
+
+  get students() {
+    return this._students;
+  }
+
+  set students(students) {
+    if (Array.isArray(students)) {
+      this._students = students;
+    } else {
+      throw new Error('Please enter an array');
+    }
+  }
+}
