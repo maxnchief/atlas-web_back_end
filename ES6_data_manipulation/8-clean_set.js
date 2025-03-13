@@ -1,18 +1,16 @@
-function cleanSet(set, startString) {
-    if (typeof startString !== 'string' || startString.length === 0) {
-        return '';
+export default function cleanSet(set, startString) {
+  const parts = [];
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
+    return '';
+  }
+  for (const value of set.values()) {
+    if (typeof value === 'string' && value.startsWith(startString)) {
+    const valueSubStr = value.substring(startString.length);
+ 
+    if (valueSubStr && valueSubStr !== value) {
+      parts.push(valueSubStr);
     }
-
-    let result = '';
-
-    set.forEach(value => {
-        if (value.startsWith(startString)) {
-            if (result.length > 0) {
-                result += '-';
-            }
-            result += value.slice(startString.length);
-        }
-    });
-
-    return result;
+  }
+  }
+  return parts.join('-');
 }
