@@ -1,4 +1,4 @@
-import Currency from './3-currency.js';
+import from './3-currency';
 
 class Pricing {
   constructor(amount, currency) {
