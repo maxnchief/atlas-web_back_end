@@ -1,4 +1,4 @@
-import from './3-currency';
+import currency from './3-currency';
 
 class Pricing {
   constructor(amount, currency) {
