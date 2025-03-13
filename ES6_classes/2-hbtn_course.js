@@ -1,19 +1,19 @@
 export default class HolbertonCourse {
-    constructor(name, length, students) {
-      this._name = typeof name === 'string' ? name : (() => { throw new Error('Please enter a string'); })();
-      this._length = typeof length === 'number' ? length : (() => { throw new Error('Please enter a number'); })();
-      this._students = Array.isArray(students) ? students : (() => { throw new Error('Please enter a an array'); })();
-    }
-  
-    get name() {
-      return this._name;
-    }
-  
-    set name(name) {
-      if (typeof name === 'string') {
-        this._name = name;
-      } else {
-        throw new Error('Please enter a string');
+  constructor(name, length, students) {
+    this._name = typeof name === 'string' ? name : (() => { throw new Error('Please enter a string'); })();
+    this._length = typeof length === 'number' ? length : (() => { throw new Error('Please enter a number'); })();
+    this._students = Array.isArray(students) ? students : (() => { throw new Error('Please enter a an array'); })();
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(name) {
+    if (typeof name === 'string') {
+      this._name = name;
+    } else {
+      throw new Error('Please enter a string');
       }
     }
   
