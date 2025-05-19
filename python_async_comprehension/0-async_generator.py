@@ -1,4 +1,18 @@
 #!/usr/bin/env python3
+"""
+Asynchronously generates 10 random floating-point numbers between 0 and 10.
+
+Yields:
+    float: A random number between 0 and 10, generated after a 1 second delay.
+
+Usage:
+    This function is an asynchronous generator that yields a new random float
+    every second, for a total of 10 values. It can be used in an async for loop.
+
+Example:
+    async for number in async_generator():
+        print(number)
+"""
 
 
 import asyncio
