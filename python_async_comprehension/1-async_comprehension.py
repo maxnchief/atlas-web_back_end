@@ -7,7 +7,7 @@ Yields:
 
 Usage:
     This function is an asynchronous generator that yields a new random float
-    every second, for a total of 10 values. 
+    every second, for a total of 10 values.
     It can be used in an async for loop.
 
 Example:
@@ -33,6 +33,6 @@ async_generator = __import__('0-async_generator').async_generator
 
 
 async def async_comprehension() -> List[float]:
-    """Collects 10 random numbers from async_generator. 
+    """Collects 10 random numbers from async_generator.
     Returns them as a list."""
     return [num async for num in async_generator()]
