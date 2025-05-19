@@ -17,7 +17,7 @@ Example:
 
 import asyncio
 import random
-from typing import AsyncGenerator
+from typing import AsyncGenerator, List
 
 
 async def async_generator() -> AsyncGenerator[float, None]:
@@ -26,3 +26,10 @@ async def async_generator() -> AsyncGenerator[float, None]:
         await asyncio.sleep(1)
         yield random.uniform(0, 10)
 
+
+async_generator = __import__('0-async_generator').async_generator
+
+
+async def async_comprehension() -> List[float]:
+    """Collects 10 random numbers from async_generator and returns them as a list."""
+    return [num async for num in async_generator()]
