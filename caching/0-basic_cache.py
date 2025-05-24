@@ -8,12 +8,13 @@ Implements a basic caching system with no limit using BaseCaching.
 
 BaseCaching = __import__('base_caching').BaseCaching
 
+
 class BasicCache(BaseCaching):
     """Basic caching system with no limit."""
 
     def put(self, key, item):
         """
-        Assign to the dictionary self.cache_data the item value for the key key.
+        Assign to the dictionary self.cache_data the item value for the key.
         If key or item is None, do nothing.
         """
         if key is not None and item is not None:
