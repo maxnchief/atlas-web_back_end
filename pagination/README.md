@@ -1,0 +1,1 @@
+This is the pagination directory for the atlas intranet
