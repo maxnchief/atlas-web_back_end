@@ -44,7 +44,9 @@ class Server:
         Deletion-resilient hypermedia pagination.
         Returns a dictionary with index, next_index, page_size, and data.
         """
-        assert index is None or (isinstance(index, int) and 0 <= index < len(self.dataset()))
+        assert index is None or (
+            isinstance(index, int) and 0 <= index < len(self.dataset())
+        )
         indexed_data = self.indexed_dataset()
         data = []
         current = index if index is not None else 0
