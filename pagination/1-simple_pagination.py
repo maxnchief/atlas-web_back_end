@@ -32,6 +32,7 @@ class Server:
             return []
         return dataset[start:end]
 
+
 def index_range(page: int, page_size: int) -> tuple:
     """
     Return a tuple of (start_index, end_index) for pagination.
