@@ -1,0 +1,1 @@
+This is the directory for the personal data project on Atlas Intranet.
