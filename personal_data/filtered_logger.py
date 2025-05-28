@@ -2,8 +2,9 @@
 
 import re
 from typing import List
-
 import logging
+
+PII_FIELDS = ("name", "email", "phone", "ssn", "password")
 
 
 class RedactingFormatter(logging.Formatter):
@@ -20,12 +21,7 @@ class RedactingFormatter(logging.Formatter):
 
     def format(self, record: logging.LogRecord) -> str:
         original = super().format(record)
-        return filter_datum(
-            self.fields,
-            self.REDACTION,
-            original,
-            self.SEPARATOR
-        )
+        return filter_datum(self.fields, self.REDACTION, original, self.SEPARATOR)
 
 
 def filter_datum(fields: List[str], redaction: str,
@@ -33,3 +29,14 @@ def filter_datum(fields: List[str], redaction: str,
     """Obfuscate specified fields in a log message."""
     pattern = rf'({"|".join(fields)})=([^{separator}]*)'
     return re.sub(pattern, rf'\1={redaction}', message)
+
+
+def get_logger() -> logging.Logger:
+    """Returns a configured logger for user data with PII filtering."""
+    logger = logging.getLogger("user_data")
+    logger.setLevel(logging.INFO)
+    logger.propagate = False
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(RedactingFormatter(list(PII_FIELDS)))
+    logger.handlers = [stream_handler]
+    return logger
