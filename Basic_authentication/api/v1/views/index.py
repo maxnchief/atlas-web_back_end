@@ -33,3 +33,12 @@ def unauthorized() -> str:
     """
     from flask import abort
     abort(401)
+
+
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
+def forbidden() -> str:
+    """ GET /api/v1/forbidden
+    Raises a 403 Forbidden error for testing purposes.
+    """
+    from flask import abort
+    abort(403)
