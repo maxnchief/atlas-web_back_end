@@ -24,9 +24,7 @@ class RedactingFormatter(logging.Formatter):
 
     def format(self, record: logging.LogRecord) -> str:
         original = super().format(record)
-        return filter_datum(
-            self.fields, self.REDACTION, original, self.SEPARATOR
-        )
+        return filter_datum(self.fields, self.REDACTION, original, self.SEPARATOR)
 
 
 def filter_datum(fields: List[str], redaction: str,
@@ -59,3 +57,26 @@ def get_db() -> MySQLConnection:
         host=host,
         database=db_name
     )
+
+
+def main():
+    """Retrieve and log user data with PII filtering."""
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM users;")
+    fields = [desc[0] for desc in cursor.description]
+    logger = get_logger()
+    for row in cursor:
+        row_dict = dict(zip(fields, row))
+        # Format each field as key=value;
+        msg = []
+        for k, v in row_dict.items():
+            msg.append(f"{k}={v}")
+        message = "; ".join(msg) + ";"
+        logger.info(message)
+    cursor.close()
+    db.close()
+
+
+if __name__ == "__main__":
+    main()
