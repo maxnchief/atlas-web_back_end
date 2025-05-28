@@ -36,8 +36,20 @@ class Auth:
     """Template for authentication system."""
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
-        """Determines if authentication is required for a given path."""
-        return False
+        """
+        Returns True if authentication is required for the given path.
+        Returns True if path is None or excluded_paths is None or empty.
+        Returns False if path matches any in excluded_paths (slash tolerant).
+        """
+        if path is None or not excluded_paths:
+            return True
+        # Ensure path ends with a slash for comparison
+        if not path.endswith('/'):
+            path += '/'
+        for excluded in excluded_paths:
+            if excluded == path:
+                return False
+        return True
 
     def authorization_header(self, request=None) -> str:
         """Returns the authorization header from the request."""
