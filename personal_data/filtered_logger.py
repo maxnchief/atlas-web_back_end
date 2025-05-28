@@ -48,7 +48,7 @@ def get_logger() -> logging.Logger:
 
 
 def get_db() -> MySQLConnection:
-    """Returns a connector to the secure Holberton database using environment variables."""
+    """Connects to the Holberton database using env variables."""
     username = os.getenv("PERSONAL_DATA_DB_USERNAME", "root")
     password = os.getenv("PERSONAL_DATA_DB_PASSWORD", "")
     host = os.getenv("PERSONAL_DATA_DB_HOST", "localhost")
