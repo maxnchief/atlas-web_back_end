@@ -1,5 +1,28 @@
 #!/usr/bin/env python3
-"""
+
+"""This module defines the BasicAuth class, which implements HTTP Basic
+Authentication for the API. It provides methods to extract and decode
+credentials from the Authorization header, and to validate user credentials.
+
+BasicAuth: Inherits from Auth and implements methods for handling
+Basic Authentication.
+
+Methods:
+extract_base64_authorization_header(authorization_header: str) -> str:
+    Extracts the Base64 part of the Authorization header if present.
+
+decode_base64_authorization_header(base64_authorization_header: str) -> str:
+    Decodes a Base64-encoded string and returns its UTF-8 representation.
+
+extract_user_credentials(decoded_base64_authorization_header: str) -> (str, str):
+    Splits the decoded string into user email and password.
+
+user_object_from_credentials(user_email: str, user_pwd: str) -> TypeVar('User'):
+    Returns a User instance if the email and password are valid.
+
+Use the BasicAuth class as part of the API authentication system to
+validate user credentials provided via HTTP Basic Authentication.
+
 basic_auth.py
 
 This module defines the BasicAuth class, which provides a basic authentication mechanism
