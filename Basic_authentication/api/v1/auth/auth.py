@@ -28,7 +28,6 @@ Methods:
 """
 from flask import request
 from typing import List, TypeVar
-from api.v1.auth.basic_auth import BasicAuth
 
 User = TypeVar('User')
 
