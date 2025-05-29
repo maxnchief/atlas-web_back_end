@@ -42,3 +42,12 @@ class DB:
         session.commit()
         session.refresh(user)
         return user
+
+    def find_user_by(self, **kwargs):
+        """Finds a user by arbitrary keyword arguments."""
+        from user import User
+        session = self._session
+        user = session.query(User).filter_by(**kwargs).first()
+        if user is None:
+            raise NoResultFound()
+        return user
