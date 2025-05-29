@@ -14,7 +14,7 @@ Each endpoint handles errors such as missing or invalid user IDs, invalid
 request formats, and missing required fields. The User model is used for all
 database interactions. Module of Users views
 """
-from api.v1.views import app_views
+
 from flask import abort, jsonify, request
 from models.user import User
 
