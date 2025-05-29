@@ -1,5 +1,18 @@
 #!/usr/bin/env python3
-""" Module of Users views
+"""Module: users.py
+This module defines the Users views for the API. It provides endpoints for
+retrieving, creating, updating, and deleting User objects. All responses are
+JSON formatted. The endpoints include:
+
+- GET /api/v1/users: Returns a list of all users.
+- GET /api/v1/users/<user_id>: Returns a specific user by ID.
+- DELETE /api/v1/users/<user_id>: Deletes a user by ID.
+- POST /api/v1/users: Creates a new user with provided details.
+- PUT /api/v1/users/<user_id>: Updates an existing user's details.
+
+Each endpoint handles errors such as missing or invalid user IDs, invalid
+request formats, and missing required fields. The User model is used for all
+database interactions. Module of Users views
 """
 from api.v1.views import app_views
 from flask import abort, jsonify, request
