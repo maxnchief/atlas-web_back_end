@@ -10,5 +10,12 @@ class Cache:
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
         key = str(uuid.uuid4())
-        self._redis.set(key, data)
-        return
+        # Convert data to bytes before storing
+        if isinstance(data, bytes):
+            value = data
+        elif isinstance(data, str):
+            value = data.encode('utf-8')
+        else:
+            value = str(data).encode('utf-8')
+        self._redis.set(key, value)
+        return key
