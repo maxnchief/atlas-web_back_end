@@ -1,0 +1,1 @@
+this is the directory for the redis project on the Atlas Intranet
