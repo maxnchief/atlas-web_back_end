@@ -1,0 +1,1 @@
+This is the directory for the Node_JS project in the atlas intranet.
