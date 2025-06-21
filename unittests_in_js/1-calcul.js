@@ -13,3 +13,5 @@ function calculateNumber(type, a, b) {
         return num1 / num2;
     }
 }
+
+module.exports = calculateNumber;
