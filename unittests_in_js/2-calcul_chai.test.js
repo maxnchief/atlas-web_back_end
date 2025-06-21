@@ -36,3 +36,6 @@ describe('calculateNumber', function () {
       expect(calculateNumber('DIVIDE', 1.4, 0.2)).to.equal('Error');
       expect(calculateNumber('DIVIDE', 1.4, -0.2)).to.equal('Error');
       expect(calculateNumber('DIVIDE', 0, 0)).to.equal('Error');
+    });
+  });
+});
