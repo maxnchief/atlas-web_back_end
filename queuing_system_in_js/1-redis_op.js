@@ -27,4 +27,5 @@ function displaySchoolValue(schoolName) {
 client.connect().then(() => {
     displaySchoolValue('Holberton');
     setNewSchool('HolbertonSanFrancisco', '100');
+    displaySchoolValue('HolbertonSanFrancisco');
 });
