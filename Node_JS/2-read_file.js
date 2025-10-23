@@ -1,3 +1,7 @@
+/**
+ * Read a CSV file synchronously, count students and group them by the 'field' column,
+ * then print a brief summary to the console.
+ */
 const fs = require('fs');
 
 function countStudents(path) {
