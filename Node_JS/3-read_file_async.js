@@ -1,3 +1,8 @@
+/**
+ * Reads a CSV file containing student records, counts students overall and by field,
+ * and prints summary information to the console.
+ */
+
 const fs = require('fs');
 
 function countStudents(path) {
