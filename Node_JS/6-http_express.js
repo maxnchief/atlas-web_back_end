@@ -1,3 +1,8 @@
+/**
+ * This module creates an Express application, registers a GET handler
+ * for the root path that responds with "Hello Holberton School!"
+ */
+
 const express = require('express');
 const app = express();
 
