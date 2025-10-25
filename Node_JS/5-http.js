@@ -1,3 +1,6 @@
+/**
+ * Simple HTTP server that serves two routes and delegates student data processing.
+ */
 const http = require('http');
 const countStudents = require('./3-read_file_async');
 
