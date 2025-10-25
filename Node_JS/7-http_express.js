@@ -14,7 +14,7 @@ app.get('/students', (req, res) => {
         res.end('Cannot load the database');
         return;
     }
-    // Patch console.log to write to res for this request
+    
     const origLog = console.log;
     console.log = function (...args) {
         res.write(args.join(' ') + '\n');
