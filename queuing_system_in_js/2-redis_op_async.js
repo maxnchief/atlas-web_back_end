@@ -25,8 +25,8 @@ async function displaySchoolValue(schoolName) {
     }
 }
 
-client.connect().then(async () => {
-    await displaySchoolValue('Holberton');
+client.connect().then(() => {
+    displaySchoolValue('Holberton');
     setNewSchool('HolbertonSanFrancisco', '100');
-    await displaySchoolValue('HolbertonSanFrancisco');
+    displaySchoolValue('HolbertonSanFrancisco');
 });
